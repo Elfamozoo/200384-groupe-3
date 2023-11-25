@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Algo>
-    <description courant="AFFICHERCALCUL espaceBlanc()" texte=""/>
+    <description texte="" courant="AFFICHERCALCUL espaceBlanc()"/>
     <extension extnom="inactif"/>
-    <fonction fctcode="" fctetat="inactif"/>
-    <F2 F2lignes="" F2etat="inactif" F2defaut="" F2para=""/>
-    <repere repcode="-10#10#-10#10#2#2" repetat="inactif"/>
-    <param epaisseurLigne="2" arrondiAuto="vrai" nbDecimales="8" totalAffichages="1000" totalBoucles="5000000" epaisseurPoint="2" maxBoucle="500000"/>
+    <fonction fctetat="inactif" fctcode=""/>
+    <F2 F2etat="inactif" F2lignes="" F2para="" F2defaut=""/>
+    <repere repetat="inactif" repcode="-10#10#-10#10#2#2"/>
+    <param totalBoucles="5000000" epaisseurLigne="2" arrondiAuto="vrai" totalAffichages="1000" nbDecimales="8" maxBoucle="500000" epaisseurPoint="2"/>
     <item algoitem="FONCTIONS_UTILISEES" code="200#declarationfonctions">
         <item algoitem="FONCTION espaceBlanc( )" code="201#espaceBlanc# ">
             <item algoitem="VARIABLES_FONCTION" code="202#declarationsvariablesfonction">
@@ -61,6 +61,65 @@
                 <item algoitem="FIN_POUR" code="14#finpour"/>
             </item>
             <item algoitem="RENVOYER nouveauMot" code="205#nouveauMot"/>
+            <item algoitem="FIN_FONCTION" code="204#finfonction"/>
+        </item>
+        <item algoitem="FONCTION nbr_voyelles(text)" code="201#nbr_voyelles#text">
+            <item algoitem="VARIABLES_FONCTION" code="202#declarationsvariablesfonction">
+                <item algoitem="lettre EST_DU_TYPE CHAINE" code="1#CHAINE#lettre"/>
+                <item algoitem="voyelles EST_DU_TYPE NOMBRE" code="1#NOMBRE#voyelles"/>
+                <item algoitem="compteur EST_DU_TYPE NOMBRE" code="1#NOMBRE#compteur"/>
+            </item>
+            <item algoitem="DEBUT_FONCTION" code="203#debutfonction"/>
+            <item algoitem="voyelles PREND_LA_VALEUR 0" code="5#voyelles#0#pasliste"/>
+            <item algoitem="POUR compteur ALLANT_DE 0 A text.length" code="12#compteur#0#text.length">
+                <item algoitem="DEBUT_POUR" code="13#debutpour"/>
+                <item algoitem="lettre PREND_LA_VALEUR text.substr(compteur, 1)" code="5#lettre#text.substr(compteur, 1)#pasliste"/>
+                <item algoitem="SI (lettre == &quot;a&quot; OU lettre == &quot;A&quot;) ALORS" code="6#lettre == &quot;a&quot; OU lettre == &quot;A&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="SI (lettre == &quot;e&quot; OU lettre == &quot;E&quot;) ALORS" code="6#lettre == &quot;e&quot; OU lettre == &quot;E&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="SI (lettre == &quot;i&quot; OU lettre == &quot;I&quot;) ALORS" code="6#lettre == &quot;i&quot; OU lettre == &quot;I&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="SI (lettre == &quot;o&quot; OU lettre == &quot;O&quot;) ALORS" code="6#lettre == &quot;o&quot; OU lettre == &quot;O&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="SI (lettre == &quot;u&quot; OU lettre == &quot;U&quot;) ALORS" code="6#lettre == &quot;u&quot; OU lettre == &quot;U&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="SI (lettre == &quot;y&quot; OU lettre == &quot;Y&quot;) ALORS" code="6#lettre == &quot;y&quot; OU lettre == &quot;Y&quot;">
+                    <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                    <item algoitem="voyelles PREND_LA_VALEUR voyelles + 1" code="5#voyelles#voyelles + 1#pasliste"/>
+                    <item algoitem="FIN_SI" code="8#finsi"/>
+                </item>
+                <item algoitem="FIN_POUR" code="14#finpour"/>
+            </item>
+            <item algoitem="RENVOYER voyelles" code="205#voyelles"/>
+            <item algoitem="FIN_FONCTION" code="204#finfonction"/>
+        </item>
+        <item algoitem="FONCTION comptageVoyelles( )" code="201#comptageVoyelles# ">
+            <item algoitem="VARIABLES_FONCTION" code="202#declarationsvariablesfonction">
+                <item algoitem="text EST_DU_TYPE CHAINE" code="1#CHAINE#text"/>
+                <item algoitem="message EST_DU_TYPE CHAINE" code="1#CHAINE#message"/>
+                <item algoitem="nbr EST_DU_TYPE NOMBRE" code="1#NOMBRE#nbr"/>
+            </item>
+            <item algoitem="DEBUT_FONCTION" code="203#debutfonction"/>
+            <item algoitem="LIRE text" code="2#text#pasliste"/>
+            <item algoitem="nbr PREND_LA_VALEUR nbr_voyelles(text)" code="5#nbr#nbr_voyelles(text)#pasliste"/>
+            <item algoitem="message PREND_LA_VALEUR &quot;Il y a &quot; + nbr  + &quot; voyelles dans le text.&quot;" code="5#message#&quot;Il y a &quot; + nbr  + &quot; voyelles dans le text.&quot;#pasliste"/>
+            <item algoitem="AFFICHER message" code="3#message#0#pasliste"/>
             <item algoitem="FIN_FONCTION" code="204#finfonction"/>
         </item>
     </item>
